@@ -55,11 +55,12 @@ function App() {
     }    
   }
 
-  function handleRemovePlace() {
+  function handleRemovePlace() { //func obj is recreated when func App component executes
+    console.log('handleRemovePlace');
     setPickedPlaces((prevPickedPlaces) =>
       prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
     );
-    setModalIsOpen(false);
+    //setModalIsOpen(false);
 
     const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
     localStorage.setItem('selectedPlaces', JSON.stringify(
